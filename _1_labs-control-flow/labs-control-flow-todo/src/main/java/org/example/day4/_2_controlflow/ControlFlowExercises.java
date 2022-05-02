@@ -15,7 +15,10 @@ public class ControlFlowExercises {
      */
     boolean kidsRide(int temp, boolean isWinter) {
 
-        return false;
+        if (isWinter){
+            return (temp >= 10 && temp <= 30);
+        }
+        return ( temp >= 15 && temp <= 30);
     }
 
     /*
@@ -34,7 +37,9 @@ public class ControlFlowExercises {
      */
     boolean find8(int a, int b) {
 
-        return false;
+        if (a == 8 || b == 8){
+            return true;
+        } return ((a+b) == 8 || Math.abs(a-b) == 8 || (a*b) == 8);
     }
 
     /*
@@ -52,7 +57,18 @@ public class ControlFlowExercises {
      */
     int sum(int a, int b, int c) {
 
-        return 0;
+        if (a == b){
+            if (a == c){
+                return a;
+            } return a + c;
+        }
+        if (a == c){
+            return a+ b;
+        }
+        if (b == c){
+            return a + b;
+        }
+        return (a + b + c);
     }
 
     /*
@@ -69,7 +85,13 @@ public class ControlFlowExercises {
      */
     boolean goOut(boolean isSunday, boolean isMom, boolean isPast20) {
 
-        return false;
+        if (isPast20){
+            return false;
+        }
+        if (isMom){
+            return true;
+        }
+        return (!isSunday);
     }
 
     /*
@@ -88,7 +110,13 @@ public class ControlFlowExercises {
      */
     boolean hangPaintings(int small, int big, int length) {
 
-        return false;
+        int maxBig = length/5;
+        if (maxBig <= big){
+            length -= maxBig * 5;
+        } else{
+            length -= big * 5;
+        }
+        return length <= small;
     }
 
     /*
@@ -106,6 +134,14 @@ public class ControlFlowExercises {
      */
     String canParty(int day, boolean vacation) {
 
-        return "";
+        if (vacation){
+            if (day == 5 || day == 6){
+                return "Party all night";
+            }
+            return "Party till midnight";
+        } else if (day == 5 || day == 6) {
+            return "Party till midnight";
+        }
+        return "Don't party";
     }
 }
