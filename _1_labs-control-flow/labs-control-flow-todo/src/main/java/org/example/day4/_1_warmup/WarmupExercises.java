@@ -10,7 +10,7 @@ public class WarmupExercises {
             Implement the logic - method returns true if n1 > n2, false otherwise.
         */
 
-        return false;
+        return n1 > n2;
     }
 
     boolean equalString(String s1, String s2){
@@ -22,7 +22,7 @@ public class WarmupExercises {
 
         */
 
-        return  false;
+        return  s1.equals(s2);
     }
 
 }
