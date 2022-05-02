@@ -13,7 +13,10 @@ public class ArraysExercises {
      */
     boolean firstLast0(int[] array) {
 
-        return false;
+        if(array == null){
+            throw new IllegalArgumentException();
+        }
+        return array.length > 0 && (array[0] == 0 || array[array.length - 1] == 0);
     }
 
     /*
@@ -26,7 +29,7 @@ public class ArraysExercises {
         middleInts([7, 7, 7], [44, 17, 56]          -> [7, 17]
      */
     int[] middleInts(int[] a, int[] b) {
-        return new int[]{};
+        return new int[]{a[1], b[1]};
     }
 
 
@@ -39,8 +42,11 @@ public class ArraysExercises {
      */
 
     String[] reverse(String[] baseArray) {
-
-        return new String[]{};
+        String [] reversedArray = new String[baseArray.length];
+        for (int i = 0; i < baseArray.length; i++){
+            reversedArray[i] = baseArray[baseArray.length - i - 1];
+        }
+        return reversedArray;
     }
 
     /*
@@ -55,7 +61,11 @@ public class ArraysExercises {
      */
     int sum(int[] nums) {
 
-        return 0;
+        int sum = 0;
+        for (int num : nums){
+            sum += num;
+        }
+        return sum;
     }
 
     /*
@@ -71,7 +81,20 @@ public class ArraysExercises {
         isBalanced([2, 3, 4, 1, 2]]) -> false
      */
     boolean isBalanced(int[] array) {
+        int sumLeft = 0;
+        int sumRight = 0;
 
+        for (int j : array) {
+            sumRight += j;
+        }
+
+        for (int j : array) {
+            sumLeft += j;
+            sumRight -= j;
+            if (sumLeft == sumRight) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -86,8 +109,13 @@ public class ArraysExercises {
         diff([-5, 3, 9])       ->14
      */
     int diff(int[] array) {
-
-        return 0;
+            int min = array[0];
+            int max = array[0];
+            for(int j : array){
+                min = Math.min(min, j);
+                max = Math.max(max, j);
+            }
+        return max-min;
     }
 
     /*
@@ -102,8 +130,20 @@ public class ArraysExercises {
         countGroups([5, 3, 6, 2, 4])    -> 0
      */
     int countGroups(int[] array) {
-
-        return 0;
+        if (array == null){
+            throw new IllegalArgumentException();
+        }
+        boolean match = false;
+        int counter = 0;
+        for(int i = 0; i < array.length-1; i++){
+            if (array[i] == array[i+1] && !match){
+                match = true;
+                counter++;
+            }else if (array[i] != array[i+1]){
+                match = false;
+            }
+        }
+        return counter;
     }
 
     /*
@@ -118,6 +158,21 @@ public class ArraysExercises {
      */
     boolean innerInside(int[] outer, int[] inner) {
 
+        boolean same;
+        for (int k : inner) {
+            same = false;
+            for (int i : outer) {
+                if (k == i) {
+                    same = true;
+                    break;
+                }
+            }
+            if (same) {
+                continue;
+            }
+            return false;
+        }
         return true;
+    }
     }
 }
