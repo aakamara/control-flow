@@ -12,7 +12,7 @@ public class StringExercises {
 
     */
     String goodJob(String name) {
-        return "";
+        return "Good job, " + name + "!";
     }
 
     /*
@@ -26,7 +26,11 @@ public class StringExercises {
     */
     String doubleFirstHalf(String str) {
 
-        return "";
+        if (str.length()%2 == 0){
+            String half = str.substring(0, str.length() / 2);
+            return half + half;
+        }
+        return str;
     }
 
     /*
@@ -39,7 +43,7 @@ public class StringExercises {
      */
     String interlace(String a, String b) {
 
-        return "";
+        return a+b+a+b+a;
     }
 
     /*
@@ -52,7 +56,7 @@ public class StringExercises {
      */
     String cutEnds(String str) {
 
-        return "";
+        return str.length() < 2 ? "" : str.substring(1, str.length() - 1);
     }
 
     /*
@@ -65,7 +69,7 @@ public class StringExercises {
      */
     String addTags(String word, String tag) {
 
-        return "";
+        return "<" + tag + ">" + word + "</" + tag + ">";
     }
 
     /*
@@ -79,6 +83,10 @@ public class StringExercises {
      */
     String copyLastChars(String str) {
 
-        return "";
+        if(str.length() < 3){
+            return str + " " + str;
+        }
+        String end = str.substring(str.length() - 3);
+        return end + " " + end;
     }
 }
